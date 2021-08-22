@@ -16,3 +16,8 @@ else:
     current_position_people_string = str(current_position_string) + f'\n' + str(current_people_string)
     result_string = current_position_people_string
 print(result_string)
+
+
+if __name__ == '__main__':
+    print('Number of arguments:', len(sys.argv), 'arguments.')
+    print('Argument List:', str(sys.argv))
