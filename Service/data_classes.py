@@ -3,7 +3,7 @@ from dataclasses import dataclass
 
 # dataclass for position or location of the ISS
 @dataclass
-class Position:
+class Location:
     latitude: str
     longitude: str
     timestamp: int
@@ -40,8 +40,8 @@ class People:
 
 
 if __name__ == '__main__':
-    the_position = Position('29.9799', '-84.9591', 1629572576)
-    print(the_position)
+    the_location = Location('29.9799', '-84.9591', 1629572576)
+    print(the_location)
     the_people_dict = {'ISS': ['Mark Vande Hei', 'Oleg Novitskiy', 'Pyotr Dubrov', 'Thomas Pesquet', 'Megan McArthur', 'Shane Kimbrough', 'Akihiko Hoshide'], 'Tiangong': ['Nie Haisheng', 'Liu Boming', 'Tang Hongbo']}
     the_people = People(the_people_dict)
     print(the_people)
