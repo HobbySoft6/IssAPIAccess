@@ -1,10 +1,10 @@
 import sys
 from helper import output_result_string
-from constants import output_people, output_position
+from constants import output_people, output_location
 
 # retrieve and generate the required output strings
 current_people_string = output_result_string(output_people)
-current_position_string = output_result_string(output_position)
+current_location_string = output_result_string(output_location)
 """
 the main module to run the project.
   for example:
@@ -20,13 +20,9 @@ if len(sys.argv) == 2:
     if any(x in arg1_normal for x in people_keywords_list):
         result_string = current_people_string
     else:
-        result_string = current_position_string
+        result_string = current_location_string
 else:
-    current_position_people_string = str(current_position_string) + f'\n' + str(current_people_string)
-    result_string = current_position_people_string
+    current_location_people_string = str(current_location_string) + f'\n' + str(current_people_string)
+    result_string = current_location_people_string
 print(result_string)
 
-
-if __name__ == '__main__':
-    print('Number of arguments:', len(sys.argv), 'arguments.')
-    print('Argument List:', str(sys.argv))

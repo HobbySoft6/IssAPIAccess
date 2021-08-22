@@ -7,7 +7,7 @@ import json
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.WARNING)
 
-default_url = constants.url_position
+default_url = constants.url_location
 """
 Retrieve location and/or people data through ISS APIs.
   : Param input_url: the url where data are pulled from. Since there are two URLs, the location url is sed as default.
@@ -27,20 +27,20 @@ def retrieve_api_data(input_url=default_url):
         if input_url == constants.url_people:
             retrieved_info = constants.mock_people
         else:
-            retrieved_info = constants.mock_position
+            retrieved_info = constants.mock_location
         logger.warning(f"Timeout: {e}")
     return retrieved_info
 
 
 if __name__ == '__main__':
-    #position
-    result_position = retrieve_api_data(constants.url_position)
-    print(result_position)
-    latitude = result_position['iss_position']['latitude']
+    #location
+    result_location = retrieve_api_data(constants.url_location)
+    print(result_location)
+    latitude = result_location['iss_position']['latitude']
     print(latitude)
-    longitude = result_position['iss_position']['longitude']
+    longitude = result_location['iss_position']['longitude']
     print(longitude)
-    timestamp = result_position['timestamp']
+    timestamp = result_location['timestamp']
     print(timestamp)
     print(f'The ISS current location at {timestamp} is {{{latitude}, {longitude}}}')
 

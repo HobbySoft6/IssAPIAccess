@@ -1,8 +1,8 @@
-from constants import output_people, output_position, url_position, url_people
+from constants import output_people, output_location, url_location, url_people
 from Service.api_interface import retrieve_api_data
 from Service.data_classes import Location, People
 
-default_entity = output_position
+default_entity = output_location
 """
 Generate requested strings for print out.
   : Param requested_entity: 
@@ -25,12 +25,12 @@ def output_result_string(requested_entity=default_entity):
         current_output_string = current_people_string
 
     else:
-        retrieved_position = retrieve_api_data(url_position)
-        latitude = retrieved_position['iss_position']['latitude']
-        longitude = retrieved_position['iss_position']['longitude']
-        timestamp = retrieved_position['timestamp']
-        current_position_string = Location(latitude, longitude, timestamp)
-        current_output_string = current_position_string
+        retrieved_location = retrieve_api_data(url_location)
+        latitude = retrieved_location['iss_position']['latitude']
+        longitude = retrieved_location['iss_position']['longitude']
+        timestamp = retrieved_location['timestamp']
+        current_location_string = Location(latitude, longitude, timestamp)
+        current_output_string = current_location_string
     return current_output_string
 
 
