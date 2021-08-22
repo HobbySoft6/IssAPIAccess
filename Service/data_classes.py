@@ -1,6 +1,7 @@
 from dataclasses import dataclass
 
 
+# dataclass for position or location of the ISS
 @dataclass
 class Position:
     latitude: str
@@ -9,6 +10,13 @@ class Position:
 
     def __str__(self):
         return   f'The ISS current location at {self.timestamp} is {{{self.latitude}, {self.longitude}}}'
+
+
+"""
+the following dataclass is for people on craft(s)
+  . variable people_dict: it is a dictionary with keys are crafts and values are lists. 
+    The lists include names who are within the corresponding crafts. 
+"""
 
 
 @dataclass

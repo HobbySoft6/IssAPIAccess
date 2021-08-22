@@ -16,6 +16,8 @@ def output_result_string(requested_entity=default_entity):
                 people_dict[item['craft']] = [item['name']]
             else:
                 people_dict[item['craft']].append(item['name'])
+        print('ddd')
+        print(people_dict)
         current_people_string = People(people_dict)
         current_output_string = current_people_string
 
