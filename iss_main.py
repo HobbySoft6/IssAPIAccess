@@ -4,7 +4,14 @@ from constants import output_people, output_position
 
 current_people_string = output_result_string(output_people)
 current_position_string = output_result_string(output_position)
-
+"""
+the main module to run the project.
+  for example:
+    from terminal to run: C:\Users\xxx\IdeaProjects\IssAPIAccess> python iss_main.py "for each craft print the details of those people that are currently in space"
+The basic command line arguments logic:
+  . If there is only one argument, check if it requires craft and people. If it is not, output location information.
+  . if there is no any argument or more than 1 argument, output both location and craft and people information. 
+"""
 if len(sys.argv) == 2:
     arg1_normal = sys.argv[1].lower()
     people_keywords_list = ['craft', 'people']

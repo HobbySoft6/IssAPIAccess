@@ -8,22 +8,28 @@ logger = logging.getLogger(__name__)
 logger.setLevel(logging.WARNING)
 
 default_url = constants.url_position
+"""
+Retrieve location and/or people data through ISS APIs.
+  : Param input_url: the url where data are pulled from. Since there are two URLs, the location url is sed as default.
+  : Return retrieved_info: Retrieve location or people information and covert it to python dict.  
+"""
 
 
 def retrieve_api_data(input_url=default_url):
-    retrieved_entries = ''
+    retrieved_info = ''
     try:
         resp = requests.get(input_url, timeout=3)
-        retrieved_entries = json.loads(resp.text)
+        retrieved_info = json.loads(resp.text)
     except requests.exceptions.ConnectionError as e:
         logger.error(f"ConnectionError: {e}")
+    # provide mock data if endpoints are not available
     except Timeout as e:
         if input_url == constants.url_people:
-            retrieved_entries = constants.mock_people
+            retrieved_info = constants.mock_people
         else:
-            retrieved_entries = constants.mock_position
+            retrieved_info = constants.mock_position
         logger.warning(f"Timeout: {e}")
-    return retrieved_entries
+    return retrieved_info
 
 
 if __name__ == '__main__':
